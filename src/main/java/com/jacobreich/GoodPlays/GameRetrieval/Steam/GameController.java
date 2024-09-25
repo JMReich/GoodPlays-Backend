@@ -22,7 +22,7 @@ public class GameController {
 
     @GetMapping("/fetchGames")
     public void fetchGames() throws JsonProcessingException {
-        List<SteamGamesJson> games = gameService.fetchAndSaveGames();
+        List<SteamGamesTable> games = gameService.fetchAndSaveGames();
         // System.out.println("Games fetched: " + games.toString());
         //games.forEach(game -> System.out.println("Game ID: " + game.getAppId() + ", Game Name: " + game.getName()));
 
@@ -31,13 +31,13 @@ public class GameController {
 
     // Fetches all games from the database
     @GetMapping("/getGames")
-    public List<SteamGamesJson> getGames() {
+    public List<SteamGamesTable> getGames() {
         return gameService.getAllGames();
     }
 
     // Fetches all matching games with a fuzzy search
     @GetMapping("/searchGames")
-    public List<SteamGamesJson> searchGames(String search) {
+    public List<SteamGamesTable> searchGames(String search) {
         return gameService.searchGames(search);
     }
 

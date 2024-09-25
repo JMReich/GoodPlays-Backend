@@ -8,7 +8,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "steamGames")
-public class SteamGamesJson {
+public class SteamGamesTable {
     @Id
     @Column(name = "appid")
     @JsonProperty("appid")

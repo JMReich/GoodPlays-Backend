@@ -4,7 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface GameRepository extends JpaRepository<SteamGamesJson, Long> {
+public interface GameRepository extends JpaRepository<SteamGamesTable, Long> {
 
-    List<SteamGamesJson> findByNameContainingIgnoreCase(String search);
+    List<SteamGamesTable> findByNameContainingIgnoreCase(String search);
 }
