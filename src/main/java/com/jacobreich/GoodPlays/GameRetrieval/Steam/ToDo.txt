@@ -1,0 +1,7 @@
+TODO:
+ - Find a way to get all the steam categories into a table
+    * Probably grab unique categories when getting the games
+    * Will also involve storing the categories in each game record as Ids
+ - Find a way to get all the steam genres into a table
+    * Probably grab unique genres when getting the games
+    * Will also involve storing the genres in each game record as Ids

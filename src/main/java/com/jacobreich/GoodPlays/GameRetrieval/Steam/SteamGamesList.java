@@ -3,7 +3,7 @@ package com.jacobreich.GoodPlays.GameRetrieval.Steam;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 
-public class SteamApiResponseGames {
+public class SteamGamesList {
 
 
 
@@ -20,13 +20,13 @@ public class SteamApiResponseGames {
     }
 
     public static class AppList {
-        private List<SteamGamesTable> apps;
+        private List<SteamApps> apps;
 
-        public List<SteamGamesTable> getApps() {
+        public List<SteamApps> getApps() {
             return apps;
         }
 
-        public void setApps(List<SteamGamesTable> apps) {
+        public void setApps(List<SteamApps> apps) {
             this.apps = apps;
         }
     }
