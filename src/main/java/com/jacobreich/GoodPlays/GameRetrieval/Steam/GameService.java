@@ -2,6 +2,7 @@ package com.jacobreich.GoodPlays.GameRetrieval.Steam;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.RestTemplate;
 
@@ -23,7 +24,7 @@ public class GameService {
 
     }
 
-    @Transactional
+
     public List<SteamApps> fetchAndSaveGames() {
         // Get all apps from the Steam API
         String appsUrl = "http://api.steampowered.com/ISteamApps/GetAppList/v0002/?format=json";
@@ -37,7 +38,6 @@ public class GameService {
             List<SteamApps> appList = steanApps.getAppList().getApps();
 
             System.out.println("Total Apps: " + appList.size());
-            int x = 0;
             int max_retry = 50;
             int retry = 0;
             boolean retry_flag = false;
@@ -50,9 +50,7 @@ public class GameService {
                 retry = 0;
 
                 while (retry < max_retry && !retry_flag) {
-                    if (x == 1000) {
-                        return null;
-                    }
+
                     // Check if the app is in the blacklist table in the database
                     if (blacklistRepository.existsByappid(app.getAppid())) {
                         // Skip the app if it is in the blacklist
@@ -88,19 +86,13 @@ public class GameService {
                         if (steamGame == null || !steamGame.getSuccess() || !Objects.equals(steamGame.getType(), "game")) {
                             // Add the app to the blacklist
                             System.out.println("Blacklisting app: " + app.getAppid());
-
-                            BlackListEntry blackListEntry = new BlackListEntry();
-                            blackListEntry.setAppid(app.getAppid());
-
-                            blacklistRepository.save(blackListEntry);
-
+                            blacklistGame(app.getAppid());
                             continue;
                         }
 
                         // Save the game to the database
                         System.out.println("Saving app: " + app.getAppid());
-                        x++;
-                        gameRepository.save(steamGame);
+                        saveGame(steamGame);
                         retry_flag = true;
                     } catch (Exception e) {
                         System.out.println("Error: " + e);
@@ -121,6 +113,18 @@ public class GameService {
         }
 
         return null;
+    }
+
+    @Transactional(propagation = Propagation.REQUIRES_NEW)
+    public void saveGame(SteamAppDetails game) {
+        gameRepository.save(game);
+    }
+
+    @Transactional
+    public void blacklistGame(int appId) {
+        BlackListEntry blackListEntry = new BlackListEntry();
+        blackListEntry.setAppid(appId);
+        blacklistRepository.save(blackListEntry);
     }
 
 
