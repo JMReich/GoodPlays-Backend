@@ -1,2 +1,3 @@
 # GoodPlays-Revived
- GoodReads for Games
+This is a hobby project and is the backend of the project. 
+GoodPlays will hopefully be very similar to good reads but for video games.
