@@ -1,4 +1,4 @@
-package com.jacobreich.GoodPlays.GameRetrieval.Steam;
+package com.jacobreich.GoodPlays.Steam;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -9,7 +9,7 @@ import org.springframework.web.client.RestTemplate;
 import java.util.*;
 
 @Service
-public class GameService {
+public class SteamGameService {
     private final GameRepository gameRepository;
     private final BlacklistRepository blacklistRepository;
     private final RestTemplate restTemplate;
@@ -17,7 +17,7 @@ public class GameService {
 
 
 
-    public GameService(GameRepository gameRepository, BlacklistRepository blacklistRepository, RestTemplate restTemplate) {
+    public SteamGameService(GameRepository gameRepository, BlacklistRepository blacklistRepository, RestTemplate restTemplate) {
         this.gameRepository = gameRepository;
         this.blacklistRepository = blacklistRepository;
         this.restTemplate = restTemplate;

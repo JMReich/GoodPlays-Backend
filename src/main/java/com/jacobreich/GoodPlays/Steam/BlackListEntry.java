@@ -1,4 +1,4 @@
-package com.jacobreich.GoodPlays.GameRetrieval.Steam;
+package com.jacobreich.GoodPlays.Steam;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;

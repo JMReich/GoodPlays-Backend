@@ -2,9 +2,8 @@ package com.jacobreich.GoodPlays;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.module.SimpleModule;
-import com.jacobreich.GoodPlays.GameRetrieval.Steam.SteamAppDetails;
-import com.jacobreich.GoodPlays.GameRetrieval.Steam.SteamAppDetailsDeserializer;
-import com.jacobreich.GoodPlays.GameRetrieval.Steam.SteamApps;
+import com.jacobreich.GoodPlays.Steam.SteamAppDetails;
+import com.jacobreich.GoodPlays.Steam.SteamAppDetailsDeserializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;

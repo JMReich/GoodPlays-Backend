@@ -1,4 +1,4 @@
-package com.jacobreich.GoodPlays.GameRetrieval.Steam;
+package com.jacobreich.GoodPlays.Steam;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

@@ -1,10 +1,8 @@
-package com.jacobreich.GoodPlays.GameRetrieval.Steam;
+package com.jacobreich.GoodPlays.Steam;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import jakarta.persistence.*;
-
-import java.util.List;
 
 @Entity
 @JsonDeserialize(using = SteamAppDetailsDeserializer.class)

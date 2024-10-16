@@ -5,3 +5,11 @@ TODO:
  - Find a way to get all the steam genres into a table
     * Probably grab unique genres when getting the games
     * Will also involve storing the genres in each game record as Ids
+ - Get games from the IGDB API
+    * Will need to get the API key
+    * Will need to get the games
+    * Will need to store the games in the database
+    * Should be stored similarly to the steam games
+      - Should hopefully be able to use same methods when getting data for app page
+ - Create front end
+    * Will be using angular and maybe
